@@ -1,0 +1,10 @@
+# BEGIN WordPress
+RewriteEngine On
+RewriteBase /wordpress/
+RewriteRule ^index\.php$ - [L]
+
+# Standard-WordPress-Permalink-Regeln
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+# END WordPress
