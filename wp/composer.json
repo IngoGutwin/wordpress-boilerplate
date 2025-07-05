@@ -11,7 +11,9 @@
   "require": {
     "johnpbloch/wordpress": "6.7.2",
     "vlucas/phpdotenv": "^5.6",
-    "wpackagist-plugin/wordpress-seo":"24.5"
+    "wpackagist-plugin/wordpress-seo":"25.4",
+    "vinkla/headache": "^3.5",
+    "wpackagist-plugin/advanced-custom-fields": "6.4.2"
   },
   "config": {
     "allow-plugins": {
@@ -22,14 +24,18 @@
   "extra": {
     "wordpress-install-dir": "public/wordpress",
     "installer-paths": {
-      "public/wp-content/plugins/{$name}": ["type:wordpress-plugin"],
-      "public/wp-content/themes/{$name}": ["type:wordpress-theme"]
+      "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   },
   "repositories": [
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "path",
+      "url": ""
     }
   ]
 

@@ -1,10 +1,5 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
-
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../', '.env');
-$dotenv->load();
+require __DIR__ . '/vendor/autoload.php';
 
 define('WP_ENVIRONMENT', $_ENV['WP_ENVIRONMENT']);
 
@@ -53,14 +48,14 @@ define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress');
 define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
 
 /**
- * WordPress plugins directory
- */
-define('WP_PLUGIN_DIR', dirname(__FILE__) . '/wp-content/plugins');
-
-/**
  * WordPress content directory url
  */
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content' );
+/**
+ * WordPress plugins directory
+ */
+define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
+
 /**
  * Controls the error reporting. When true, it sets the error reporting level
  * to E_ALL. 
@@ -102,7 +97,5 @@ define('SECURE_AUTH_SALT', $_ENV['SECURE_AUTH_SALT']);
 define('LOGGED_IN_SALT', $_ENV['LOGGED_IN_SALT']);
 define('NONCE_SALT', $_ENV['NONCE_SALT']);
 
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/public');
 
 require_once(ABSPATH . 'wp-settings.php');

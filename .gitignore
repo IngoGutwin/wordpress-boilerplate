@@ -1,11 +1,10 @@
 .vscode
-vendor/
-wordpress/
-public/wp-content/plugins/
-public/wp-content/mu-plugins/
-public/wp-content/themes/
-public/wp-content/uploads/
+wp/vendor/
+wp/public/wordpress/
+wp/wp-content/plugins/
+wp/wp-content/mu-plugins/
+wp/wp-content/themes/
+wp/wp-content/uploads/
 .env
 *.log
 node_modules
-files
