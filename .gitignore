@@ -1,0 +1,9 @@
+.vscode
+wp/vendor/
+wp/public/wordpress/
+wp/public/wp-content/
+.env
+theme
+*.log
+node_modules
+id_*
