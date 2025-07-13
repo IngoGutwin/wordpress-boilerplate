@@ -84,9 +84,9 @@ build_image_and_start_containers() {
 }
 
 if [ check_dependencies ]; then
-#    do_composer_install
-#    move_wp_content_folder
-#    build_image_and_start_containers
+    do_composer_install
+    move_wp_content_folder
+    build_image_and_start_containers
     set_wp_permissions
 fi
 
