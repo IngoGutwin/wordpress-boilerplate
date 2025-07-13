@@ -1,17 +1,18 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 GREEN="\e[32m"
 RED="\e[31m"
 RESET="\e[0m"
 
-echo -e "${GREEN} start composer install..."
+for cmd in composer docker docker-compose; do
+  command -v $cmd >/dev/null 2>&1 || { echo -e "${RED}❌ $cmd not found. Please install it first.${RESET}"; exit 1; }
+done
 
+echo -e "${GREEN}Starting composer install...${RESET}"
 cd wp
-
 composer install
-
 cd ..
 
 WP_CONTENT_SOURCE="wp/public/wordpress/wp-content"
@@ -19,28 +20,21 @@ WP_CONTENT_TARGET="wp/public/wp-content"
 
 if [ -d "$WP_CONTENT_SOURCE" ]; then
   if [ ! -d "$WP_CONTENT_TARGET" ]; then
-    echo -e "${GREEN} move wp-content to target...${RESET}"
-    mv "$WP_CONTENT_SOURCE" "$WP_CONTENT_TARGET"
+    echo -e "${GREEN}Moving wp-content to target...${RESET}"
+    if mv "$WP_CONTENT_SOURCE" "$WP_CONTENT_TARGET"; then
+      echo -e "${GREEN}Moved wp-content successfully.${RESET}"
+    else
+      echo -e "${RED}Failed to move wp-content.${RESET}"
+      exit 1
+    fi
   else
-    echo -e "${RED} target-dir $WP_CONTENT_TARGET already exists. moving skipped.${RESET}"
+    echo -e "${RED}Target directory $WP_CONTENT_TARGET already exists. Skipping move.${RESET}"
   fi
 else
-  echo -e "${RED} wp-content source $WP_CONTENT_SOURCE not found. skip move.${RESET}"
+  echo -e "${RED}Source directory $WP_CONTENT_SOURCE not found. Skipping move.${RESET}"
 fi
 
-# load .evn File 
-if [ -f ".env" ]; then
-  export $(grep -v '^#' .env | xargs)
-else
-  echo "❌ .env-File not found!"
-  exit 1
-fi
+echo -e "${GREEN}Starting docker-compose...${RESET}"
+docker-compose up -d --build
 
-echo -e "${GREEN} building the docker image...${RESET}"
-# change the image name to your needs
-docker build -t "your-wp-apache2-image-build" .
-
-echo -e "${GREEN} starting with docker-compose...${RESET}"
-docker-compose up -d
-
-echo -e "${GREEN} Setup ready! Open ${WP_SITEURL} in your Browser.${RESET}"
+echo -e "${GREEN}Setup ready! Open ${WP_SITEURL} in your browser.${RESET}"

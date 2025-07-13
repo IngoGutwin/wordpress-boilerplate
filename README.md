@@ -1,9 +1,12 @@
 # WordPress Development Environment with Docker, Caddy & Composer
 
-This repository provides a modern and flexible local development setup for WordPress using Docker, Composer, and Caddy with automatic HTTPS support for `.test` domains.  
-It uses the Composer-based WordPress core package [`johnpbloch/wordpress`](https://github.com/johnpbloch/wordpress), allowing you to manage WordPress like any other PHP dependency.
+This repository provides a modern and flexible local development setup for WordPress using Docker, Composer, and Caddy with automatic HTTPS support for .test domains.
+It uses the Composer-based WordPress core package johnpbloch/wordpress, allowing you to manage WordPress like any other PHP dependency.
 
-###### Make sure to adjust the following files according to your project: .env, docker-compose.yml, Caddyfile, apache2.conf. and change in install.sh the name of the docker image to your own if you want.
+This setup is ideal for developing custom themes or plugins and supports multisite WordPress installations.
+
+You can manage multiple independent WordPress projects using this setup.
+For shared reverse proxy handling, the Caddy service can either be kept inside the project or moved to a dedicated external folder, allowing it to proxy across multiple local .test domains consistently.
 
 ---
 
@@ -56,6 +59,14 @@ Ensure the following are installed:
 ```
 git clone https://github.com/IngoGutwin/wordpress-boilerplate.git
 ```
+
+###### Make sure to adjust the following files according to your project: 
+ - .env
+ - docker-compose.yml
+ - Caddyfile
+ - apache2.conf
+ - and change in install.sh the name of the docker image to yours if you want.
+
 
 #### rename it
 

@@ -4,8 +4,8 @@ services:
   mysql_db:
     env_file: ./.env
 # update the version to your needs
-    image: mysql:8.0.35
-# rename your container
+    image: mariadb:10.5
+    # rename your container
     container_name: container_name_mysql_db
     restart: unless-stopped 
     environment:
@@ -24,8 +24,11 @@ services:
 # rename your service
   apache2:
     env_file: ./.env
+    build:
+      context: .
+      dockerfile: Dockerfile.apache2php8.3
 # rename your image
-    image: your-wp-apache2-image-build:latest
+    image: apache2-wordpress:1.0
 # rename your container 
     container_name: container_name_apache2
     restart: unless-stopped
