@@ -1,57 +1,37 @@
 services:
 
 # rename your service
-  dev_reverse_proxy:
-# rename your container 
-    container_name: container_dev_reverse_proxy
-# update the version to your needs 
-    container_name: container_dev_reverse_proxy
-    image: caddy:2.8.4-alpine
-    restart: unless-stopped
-    depends_on:
-      - am_apache2
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    networks:
-      - name-network
-  
-# rename your service
   mysql_db:
     env_file: ./.env
-# update the version to your needs 
-    image: mysql::8.0.35
-# rename your container 
+# update the version to your needs
+    image: mysql:8.0.35
+# rename your container
     container_name: container_name_mysql_db
     restart: unless-stopped 
-    ports:
-      - ${DATABASE_PORT}:${DATABASE_PORT}
     environment:
       MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD} 
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+# rename your volumes
     volumes:
       - name_db_volume:/var/lib/mysql
     networks:
-# rename your network
-      - name-network
+      - development-network
+    expose:
+      - "3306"
 
 # rename your service
   apache2:
     env_file: ./.env
 # rename your image
-    image: name_wp_apache2:latest
+    image: your-wp-apache2-image-build:latest
 # rename your container 
     container_name: container_name_apache2
     restart: unless-stopped
     depends_on: 
 # rename your service
-      - name_mysql_db
+      - mysql_db
     volumes:
       - ./wp:/var/www/html
       - ./apache2.conf:/etc/apache2/sites-available/000-default.conf
@@ -77,15 +57,14 @@ services:
       WORDPRESS_DB_NAME: ${DATABASE_NAME}
       WORDPRESS_TABLE_PREFIX: ${WP_TABLE_PREFIX}
     networks:
-# rename your network
-      - name-network
+      - development-network
+    expose:
+      - "80"
 
 networks:
-# rename your network
-  name-network:
+  development-network:
+    external: true
 
 volumes:
 # rename your volumes 
   name_db_volume:
-  caddy_data:
-  caddy_config:

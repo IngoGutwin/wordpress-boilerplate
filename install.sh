@@ -38,7 +38,7 @@ fi
 
 echo -e "${GREEN} building the docker image...${RESET}"
 # change the image name to your needs
-docker build -t "your-docker-image" .
+docker build -t "your-wp-apache2-image-build" .
 
 echo -e "${GREEN} starting with docker-compose...${RESET}"
 docker-compose up -d

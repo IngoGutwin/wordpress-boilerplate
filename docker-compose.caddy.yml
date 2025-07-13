@@ -1,0 +1,28 @@
+services:
+
+# rename your service
+  dev_reverse_proxy:
+# rename your container
+    container_name: container_dev_reverse_proxy
+# update the version to your needs
+    image: caddy:2.8.4-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+# rename your volumes
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - name_caddy_data:/data
+      - name_caddy_config:/config
+    networks:
+      - development-network
+
+networks:
+# rename your network
+  development-network:
+    name: development-network
+
+volumes:
+  name_caddy_data:
+  name_caddy_config:
