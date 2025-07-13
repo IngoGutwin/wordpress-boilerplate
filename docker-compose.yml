@@ -1,9 +1,9 @@
 services:
 
-# rename your service
+  # rename your service
   mysql_db:
     env_file: ./.env
-# update the version to your needs
+    # update the version to your needs
     image: mariadb:10.5
     # rename your container
     container_name: container_name_mysql_db
@@ -13,7 +13,7 @@ services:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
-# rename your volumes
+    # rename your volumes
     volumes:
       - name_db_volume:/var/lib/mysql
     networks:
@@ -21,19 +21,19 @@ services:
     expose:
       - "3306"
 
-# rename your service
+  # rename your service
   apache2:
     env_file: ./.env
     build:
       context: .
       dockerfile: Dockerfile.apache2php8.3
-# rename your image
+    # rename your image
     image: apache2-wordpress:1.0
-# rename your container 
+    # rename your container 
     container_name: container_name_apache2
     restart: unless-stopped
     depends_on: 
-# rename your service
+    # rename your service
       - mysql_db
     volumes:
       - ./wp:/var/www/html

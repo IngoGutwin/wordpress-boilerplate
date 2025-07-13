@@ -65,12 +65,12 @@ git clone https://github.com/IngoGutwin/wordpress-boilerplate.git
  - docker-compose.yml
  - Caddyfile
  - apache2.conf
- - and change in install.sh the name of the docker image to yours if you want.
 
 
 #### rename it
 
 ```
+bash
 mv wordpress-boilerplate your-project-name
 ```
 
@@ -79,6 +79,7 @@ mv wordpress-boilerplate your-project-name
 ### 2. Copy and Edit the Environment File
 
 ```
+bash
 cd your-project-name
 cp .env.example .env
 ```
@@ -92,12 +93,18 @@ cp .env.example .env
 ### 3. Remove the .git folder and init your own repo
 
 ```
+bash
 rm -rf .git
+git init
 ```
 
 ---
 
-##### Then open .env, docker-compose, Caddyfile, apache2.conf in a text editor and set your project-specific values!!!
+##### Open these files in a text editor and set your project-specific values!!!
+
+- .env 
+- docker-compose.yml
+- Caddyfile
 
 ---
 
