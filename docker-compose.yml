@@ -26,9 +26,9 @@ services:
     env_file: ./.env
     build:
       context: .
-      dockerfile: Dockerfile.apache2php8.3
+      dockerfile: ./docker/Dockerfile.apache2php8.3
     # rename your image
-    image: apache2-wordpress:1.0
+    image: apache2-wordpress-test:1.0
     # rename your container 
     container_name: container_name_apache2
     restart: unless-stopped
@@ -37,7 +37,7 @@ services:
       - mysql_db
     volumes:
       - ./wp:/var/www/html
-      - ./apache2.conf:/etc/apache2/sites-available/000-default.conf
+      - ./docker/apache2.conf:/etc/apache2/sites-available/000-default.conf
     environment:
       WP_SITEURL: ${WP_SITEURL}
       WP_CACHE: ${WP_CACHE}
@@ -67,6 +67,7 @@ services:
 networks:
   development-network:
     external: true
+    driver: bridge
 
 volumes:
 # rename your volumes 

@@ -9,10 +9,9 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-      - "443:443"
 # rename your volumes
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile
       - name_caddy_data:/data
       - name_caddy_config:/config
     networks:
@@ -22,6 +21,8 @@ networks:
 # rename your network
   development-network:
     name: development-network
+    external: true
+    driver: bridge
 
 volumes:
   name_caddy_data:
