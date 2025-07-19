@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-$_SERVER['HTTPS'] = 'on';
-
 define('WP_ENVIRONMENT', $_ENV['WP_ENVIRONMENT']);
 
 /**
