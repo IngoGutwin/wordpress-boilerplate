@@ -63,8 +63,9 @@ git clone https://github.com/IngoGutwin/wordpress-boilerplate.git
 ###### Make sure to adjust the following files according to your project: 
  - .env
  - docker-compose.yml
- - Caddyfile
- - apache2.conf
+ - docker-compose.caddy.yml
+ - docker/Caddyfile
+ - docker/apache2.conf
 
 
 #### rename it
@@ -102,9 +103,11 @@ git init
 
 ##### Open these files in a text editor and set your project-specific values!!!
 
-- .env 
-- docker-compose.yml
-- Caddyfile
+ - .env
+ - docker-compose.yml
+ - docker-compose.caddy.yml
+ - docker/Caddyfile
+ - docker/apache2.conf
 
 ---
 
@@ -143,14 +146,12 @@ Starts all Docker containers (PHP, MySQL, Caddy)
 
 After the setup, your site should be available at:
 
-https://your-domain.test
+http://your-domain.test
 
 #### If not, make sure:
 
 The container container_dev_reverse_proxy (Caddy) is running
 
 Your /etc/hosts entry is correct
-
-No firewalls are blocking port 443
 
 ---
