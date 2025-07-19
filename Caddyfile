@@ -1,8 +1,0 @@
-# setup your domain
-your-domain.test {
-# setup your service name 
-    reverse_proxy your-service-name:80 {
-        header_up X-Forwarded-Proto https
-    }
-    tls internal
-}

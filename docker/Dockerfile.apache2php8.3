@@ -34,3 +34,5 @@ RUN pecl install imagick
 RUN docker-php-ext-enable imagick
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+
+COPY ./docker/logging.ini /usr/local/etc/php/conf.d/logging.ini

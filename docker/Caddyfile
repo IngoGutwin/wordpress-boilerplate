@@ -1,0 +1,6 @@
+# setup your domain
+http://your-domain.test {
+    # setup your service name 
+    reverse_proxy apache2:80
+}
+
