@@ -1,0 +1,5 @@
+wp/vendor
+wp/public/wordpress
+wp/public/wp-content
+wp/public/.htaccess
+.env

@@ -1,0 +1,36 @@
+FROM php:8.3-apache
+
+RUN apt-get update && apt-get install -y \
+  libmagickwand-dev --no-install-recommends \
+  libpng-dev \
+  libjpeg-dev \
+  libwebp-dev \
+  libfreetype6-dev \
+  libzip-dev \
+  libxml2-dev \
+  libonig-dev \
+  libicu-dev \
+  libxslt-dev \
+  unzip
+
+RUN docker-php-ext-install \
+  mysqli \
+  pdo_mysql \
+  zip \
+  exif \
+  gd \
+  intl \
+  dom \
+  xml \
+  mbstring \
+  iconv \
+  opcache \
+  fileinfo
+
+RUN a2enmod rewrite
+
+RUN pecl install imagick
+
+RUN docker-php-ext-enable imagick
+
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
