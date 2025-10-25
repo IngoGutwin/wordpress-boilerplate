@@ -1,9 +1,12 @@
+test-deploy/
+
 wp/.phpcs.xml.dist
 wp/composer*
 
 wp/public/.htaccess
 wp/public/info.php
 
+wp/public/wordpress
 wp/public/wp-content/uploads
 wp/public/wp-content/debug.log
 
