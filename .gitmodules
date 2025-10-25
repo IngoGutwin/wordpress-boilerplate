@@ -1,0 +1,4 @@
+[submodule "wp/public/wp-content/themes/a_m_theme"]
+	path = wp/public/wp-content/themes/a_m_theme
+	url = https://github.com/IngoGutwin/a_m_theme.git
+	branch = live
