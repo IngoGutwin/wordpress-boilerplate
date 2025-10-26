@@ -1,5 +1,3 @@
-test-deploy/
-
 wp/.phpcs.xml.dist
 wp/composer*
 
