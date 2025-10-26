@@ -8,6 +8,7 @@ wp/public/wordpress
 wp/public/wp-content
 wp/public/wp-content/uploads
 wp/public/wp-content/debug.log
+wp/public/wp-content/themes/a_m_theme
 
 .env*
 .env.*
