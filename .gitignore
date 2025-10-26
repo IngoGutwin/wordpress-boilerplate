@@ -12,6 +12,7 @@ wp/public/wp-content/debug.log
 .env*
 .env.*
 
+wp/vendor
 deploy.sh
 install.sh
 
