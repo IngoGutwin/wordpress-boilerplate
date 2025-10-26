@@ -1,11 +1,14 @@
 wp/.phpcs.xml.dist
 wp/composer*
 
+logs
+
 wp/public/.htaccess
 wp/public/info.php
 
 wp/public/wordpress
-wp/public/wp-content
+wp/public/wp-content/plugins
+wp/public/wp-content/mu-plugins
 wp/public/wp-content/uploads
 wp/public/wp-content/debug.log
 wp/public/wp-content/themes/a_m_theme

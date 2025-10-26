@@ -4,14 +4,16 @@ set -euo pipefail
 
 source .env
 
-LOG_FILE="wordpress-update.log"
+LOG_FILE="logs/wordpress-update.log"
 
 TMPFILE=$(mktemp)
 
 cat > "$TMPFILE" <<EOF
 # do a secure connection 
-open -u "$FTP_USER","$FTP_PASS" sftp://$FTP_HOST;
+open --user "$FTP_USER" --password "$FTP_PASS" $FTP_HOST;
 mirror -R --verbose=3 \
+--exclude wp/public/.htaccess \
+--exclude wp/public/wp-content \
 $FTP_SOURCE_DIR $FTP_REMOTE_DIR;
 quit
 EOF
