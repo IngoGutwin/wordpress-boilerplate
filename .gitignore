@@ -1,5 +1,4 @@
 wp/.phpcs.xml.dist
-wp/composer*
 
 logs
 
