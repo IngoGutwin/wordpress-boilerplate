@@ -16,8 +16,6 @@ wp/public/wp-content/themes/a_m_theme
 .env.*
 
 wp/vendor
-deploy.sh
-install.sh
 
 a_m.code-workspace
 
