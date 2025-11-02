@@ -1,6 +1,6 @@
 wp/.phpcs.xml.dist
 
-logs
+.logs
 
 wp/public/.htaccess
 wp/public/info.php
