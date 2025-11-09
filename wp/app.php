@@ -6,6 +6,8 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
 // $_SERVER['HTTPS'] = 'on';
+//
+define('COOKIE_API_URL', $_ENV['COOKIE_API_URL']);
 
 define('WP_ENVIRONMENT', $_ENV['WP_ENVIRONMENT']);
 
