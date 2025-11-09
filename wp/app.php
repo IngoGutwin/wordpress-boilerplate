@@ -2,6 +2,8 @@
 require __DIR__ . '/vendor/autoload.php';
 
 // $_SERVER['HTTPS'] = 'on';
+//
+define('COOKIE_API_URL', $_ENV['COOKIE_API_URL']);
 
 define('WP_ENVIRONMENT', $_ENV['WP_ENVIRONMENT']);
 
