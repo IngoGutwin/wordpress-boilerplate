@@ -1,8 +1,9 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-// $_SERVER['HTTPS'] = 'on';
-//
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
+
 define('COOKIE_API_URL', $_ENV['COOKIE_API_URL']);
 
 define('WP_ENVIRONMENT', $_ENV['WP_ENVIRONMENT']);
@@ -49,7 +50,7 @@ define('WP_SITEURL', $_ENV['WP_SITEURL'] . '/wordpress');
 /**
  * WordPress content directory
  */
-define('WP_CONTENT_DIR', dirname(__FILE__) . '/public/wp-content');
+define('WP_CONTENT_DIR', __DIR__ . '/public/wp-content');
 
 /**
  * WordPress content directory url
@@ -62,7 +63,7 @@ define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
 
 /**
  * Controls the error reporting. When true, it sets the error reporting level
- * to E_ALL. 
+ * to E_ALL.
  */
 define('WP_DEBUG', $_ENV['WP_DEBUG']);
 
@@ -81,7 +82,7 @@ define('WP_CACHE', $_ENV['WP_CACHE']);
 define('WP_DEBUG_DISPLAY', $_ENV['WP_DEBUG_DISPLAY']);
 /**
  * This disables live edits of theme and plugin files on the WordPress
- * administration area. It also prevents users from adding, 
+ * administration area. It also prevents users from adding,
  * updating and deleting themes and plugins.
  */
 define('DISALLOW_FILE_MODS', $_ENV['DISALLOW_FILE_MODS']);
@@ -104,4 +105,4 @@ define('LOGGED_IN_SALT', $_ENV['LOGGED_IN_SALT']);
 define('NONCE_SALT', $_ENV['NONCE_SALT']);
 
 
-require_once(ABSPATH . 'wp-settings.php');
+require_once ABSPATH . 'wp-settings.php';

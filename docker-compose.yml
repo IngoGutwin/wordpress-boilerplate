@@ -1,11 +1,8 @@
 services:
 
-  # rename your service
   am_mariadb:
     env_file: ./.env
-    # update the version to your needs
     image: mariadb:10.5
-    # rename your container
     container_name: am_mariadb
     restart: unless-stopped 
     environment:
@@ -13,25 +10,20 @@ services:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
-    # rename your volumes
     volumes:
       - am_mariadb:/var/lib/mysql
     ports:
       - "3306:3306"
 
-  # rename your service
   am_apache2:
     env_file: ./.env
     build:
       context: .
       dockerfile: ./docker/Dockerfile.apache2php8.3
-    # rename your image
     image: apache2-wordpress:1.0
-    # rename your container 
     container_name: container_am_apache2
     restart: unless-stopped
     depends_on: 
-    # rename your service
       - am_mariadb 
     volumes:
       - ./wp:/var/www/html
@@ -61,5 +53,4 @@ services:
       - "80:80"
       
 volumes:
-# rename your volumes 
   am_mariadb:
