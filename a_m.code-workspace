@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "wp/public/wp-content/themes/a_m_theme"
+		},
+		{
+			"path": "wp/public/wp-content/plugins/am-shooting-lead"
 		}
 	],
 	"settings": {}

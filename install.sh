@@ -61,7 +61,7 @@ set_wp_permissions() {
     echo "$WEB_GROUP"
     local wp_path="wp/public"
 
-    echo "change group to http or www-data $wp_path ..."
+    echo "change group $WEB_GROUP $wp_path ..."
     sudo chgrp -R $WEB_GROUP "$wp_path"
 
     echo "chmod to 775 (directories, außer node_modules) ..."
@@ -84,8 +84,8 @@ build_image_and_start_containers() {
 }
 
 if [ check_dependencies ]; then
-    do_composer_install
-    move_wp_content_folder
-    build_image_and_start_containers
+    # do_composer_install
+    # move_wp_content_folder
+    # build_image_and_start_containers
     set_wp_permissions
 fi

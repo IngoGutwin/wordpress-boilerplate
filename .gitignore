@@ -22,4 +22,6 @@ a_m.code-workspace
 docker/
 docker-compose.yml
 
-README.md
+.env*
+.env
+*.logs
