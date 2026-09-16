@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "wp/public/wp-content/themes/a_m_theme"
+		},
+		{
+			"path": "wp/public/wp-content/plugins/am-rest-api"
+		},
+		{
+			"path": "wp/public/wp-content/plugins/am-security-hardening"
+		}
+	],
+	"settings": {}
+}

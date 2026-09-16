@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "40f6372b2c2ef8b7014c00ff0e623530",
-=======
-    "content-hash": "b9078bb25245bd445a9c0134f9bfa570",
->>>>>>> 5643485 (Update wordpress core 7.1.0)
     "packages": [
         {
             "name": "graham-campbell/result-type",
