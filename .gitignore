@@ -14,3 +14,5 @@ wp/public/wp-content/debug.log
 .env*
 .env
 *.logs
+
+build
