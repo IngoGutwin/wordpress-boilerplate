@@ -16,3 +16,5 @@ theme
 *.log
 node_modules
 id_*
+
+build
